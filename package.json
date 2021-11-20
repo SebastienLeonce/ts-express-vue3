@@ -111,7 +111,8 @@
   "nyc": {
     "reporter": [
       "json",
-      "html"
+      "html",
+      "lcov"
     ],
     "extension": [
       ".vue",
