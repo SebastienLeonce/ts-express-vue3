@@ -6,6 +6,6 @@
   "ignore": [
     "**/*.test.ts"
   ],
-  "exclude": ["spec"],
-  "exec": "ts-node --project ./server/tsconfig.json -r tsconfig-paths/register --files ./server/index.ts"
+  "exclude": ["./server/spec"],
+  "exec": "nyc ts-node --project ./tsconfig.json -r tsconfig-paths/register --files ./server/index.ts"
 }

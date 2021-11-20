@@ -1,33 +1,50 @@
 import cookieParser from 'cookie-parser';
+import helmet from 'helmet';
+import cors from 'cors';
 import morgan from 'morgan';
 import path from 'path';
-import helmet from 'helmet';
-
-import express, { NextFunction, Request, Response } from 'express';
 import StatusCodes from 'http-status-codes';
+import express, { NextFunction, Request, Response } from 'express';
+
 import 'express-async-errors';
 
 import BaseRouter from './routes';
 import logger from '@shared/Logger';
+import { cookieProps } from '@shared/constants';
 
 const app = express();
 const { BAD_REQUEST } = StatusCodes;
 
-
-
 /************************************************************************************
  *                              Set basic express settings
  ***********************************************************************************/
+/* istanbul ignore next */
+// @ts-ignore
+if (global.__coverage__) {
+    require("@cypress/code-coverage/middleware/express")(app);
+}
 
 app.use(express.json());
 app.use(express.urlencoded({extended: true}));
-app.use(cookieParser());
+app.use(cookieParser(cookieProps.secret));
 
+app.use(cors({
+    origin: [
+      'http://localhost:8080',
+      'https://localhost:8080',
+      '*'
+    ],
+    credentials: true,
+    exposedHeaders: ['set-cookie']
+}));
+
+/* istanbul ignore next */
 // Show routes called in console during development
 if (process.env.NODE_ENV === 'development') {
     app.use(morgan('dev'));
 }
 
+/* istanbul ignore next */
 // Security
 if (process.env.NODE_ENV === 'production') {
     app.use(helmet());
@@ -48,7 +65,8 @@ app.use((err: Error, req: Request, res: Response, next: NextFunction) => {
 /************************************************************************************
  *                              Serve front-end content
  ***********************************************************************************/
- if (process.env.NODE_ENV === 'production') {
+/* istanbul ignore next */
+if (process.env.NODE_ENV === 'production') {
     const viewsDir = path.join(__dirname, '../client');
     const staticDir = path.join(__dirname, '../client');
 
