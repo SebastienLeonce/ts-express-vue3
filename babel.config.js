@@ -18,24 +18,15 @@ module.exports = {
           {
             path: "./server/pre-start/env/development.env"
           }
-        ]
-      ]
-    },
-    test: {
-      plugins: [
+        ],
         [
-          "inline-dotenv",
-          {
-            path: "./server/pre-start/env/test.env"
-          }
+          'babel-plugin-istanbul',
+            {
+              extends: '@istanbuljs/nyc-config-typescript',
+              extension: ['.ts', '.tsx', '.js', '.vue']
+            }
         ]
       ]
     }
-  },
-  plugins: [
-    ['babel-plugin-istanbul', {
-      extends: '@istanbuljs/nyc-config-typescript',
-      extension: ['.ts', '.tsx', '.js', '.vue']
-    }]
-  ]
+  }
 }

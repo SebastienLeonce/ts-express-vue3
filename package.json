@@ -5,18 +5,16 @@
   "private": true,
   "author": "Sébastien LEONCE",
   "scripts": {
-    "start": "nyc node -r module-alias/register ./dist/server --env=production",
+    "start": "node -r module-alias/register ./dist/server --env=production",
     "serve": "concurrently \"npm run dev:server\" \"npm run dev:client\" --raw",
+    "test": "start-server-and-test serve http://localhost:8080 cy:run",
     "build": "concurrently \"npm run build:server\" \"npm run build:client\"",
     "cy:run": "cypress run",
     "cy:open": "cypress open",
     "dev:client": "vue-cli-service serve --mode development",
     "build:client": "vue-cli-service build --mode production",
-    "test:client": "start-server-and-test serve http://localhost:8080 cy:run",
     "dev:server": "nodemon --config ./nodemon.config.json",
     "build:server": "ts-node --compiler-options={\\\"module\\\":\\\"commonjs\\\"} build.ts",
-    "test:server": "nodemon --config ./server/spec/nodemon.json",
-    "test:server:no-reload": "ts-node --project ./tsconfig.json -r tsconfig-paths/register --files ./server/spec/index.ts",
     "lint": "vue-cli-service lint"
   },
   "dependencies": {
