@@ -1,3 +1,5 @@
+![check-code-coverage](https://img.shields.io/badge/code--coverage-10%-brightgreen) !
+
 # Typescript + Express + Vue 3 (Composition API)
 Boilerplate for Express + Vue 3 with Typescript & Composition API
 
