@@ -27,5 +27,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - run: npm ci
-    - run: npm run test:client
-    - run: ./node_modules/.bin/update-badge
+    - name: Run test 🧪
+      run: npm run test:client
+    - name: Update code coverage badge 🥇
+      run: node ./node_modules/.bin/update-badge
