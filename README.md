@@ -1,4 +1,4 @@
-![check-code-coverage](https://img.shields.io/badge/code--coverage-98.5%25-brightgreen)
+![check-code-coverage](https://img.shields.io/badge/code--coverage-98.5%25-brightgreen) [![Node.js CI](https://github.com/SebastienLeonce/ts-express-vue3/actions/workflows/node.js.yml/badge.svg)](https://github.com/SebastienLeonce/ts-express-vue3/actions/workflows/node.js.yml)
 # Typescript + Express + Vue 3 (Composition API)
 Boilerplate for Express + Vue 3 with Typescript & Composition API
 
