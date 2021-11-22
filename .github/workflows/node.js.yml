@@ -28,4 +28,4 @@ jobs:
         cache: 'npm'
     - run: npm ci
     - run: npm run test:client
-    - run: .\node_modules\.bin\update-badge
+    - run: ./node_modules/.bin/update-badge
