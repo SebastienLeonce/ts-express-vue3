@@ -6,7 +6,7 @@ import axios from "axios"
 import VueAxios from "vue-axios"
 
 axios.defaults.withCredentials = true
-axios.defaults.baseURL = `http://${process.env.HOST}:${process.env.PORT}/api/`
+axios.defaults.baseURL = (process.env.NODE_ENV == 'PRODUCTION') ? 'api/' : `http://${process.env.HOST}:${process.env.PORT}/api/`
 
 const app = createApp(App)
   .use(store)

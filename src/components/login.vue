@@ -21,7 +21,7 @@ export default {
     const user = reactive({
       email: "",
       password: ""
-    })
+    });
 
     const login = () => {
       (axios as AxiosStatic)
