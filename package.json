@@ -36,6 +36,7 @@
     "module-alias": "^2.2.2",
     "morgan": "^1.10.0",
     "randomstring": "^1.2.1",
+    "tslib": "^2.3.1",
     "vue": "^3.0.0-0",
     "vue-axios": "^3.4.0",
     "vue-class-component": "^8.0.0-0",
